@@ -1,6 +1,13 @@
 ---
 layout: post
 title: Introducing Lanyon
+
+by-nc-nd: true
+by-nc-sa: true
+by-nc: true
+by-nd: true
+by-sa: true
+by: true
 ---
 
 中文测试
