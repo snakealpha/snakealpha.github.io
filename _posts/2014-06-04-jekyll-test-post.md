@@ -2,16 +2,18 @@
 layout: post
 title: Introducing Lanyon
 
-by-nc-nd: false
-by-nc-sa: false
+tag: [test, jekyll]
+categories: [html, jekyll]
+
 by-nc: true
-by-nd: false
-by-sa: false
-by: false
 ---
 
 中文测试
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+本Post用于博客补充功能的测试。
+
+Jekyll的原本文章内容依然保留在本文章中。
+
+[Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ### Built on Poole
 
