@@ -15,5 +15,3 @@ Since [elecelf](http://snakealpha.github.io) is a Chinese blog, some words are i
 ## License
 
 Open sourced under the [MIT license](LICENSE.md).
-
-<3
