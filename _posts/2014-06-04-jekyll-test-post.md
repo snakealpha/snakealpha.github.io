@@ -46,3 +46,56 @@ Lanyon is by preference a forward-thinking project. In addition to the latest ve
 Lanyon is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/lanyon">GitHub repository</a> for downloads, bug reports, and features requests.
 
 Thanks!
+
+Code Test:
+'''C#
+using System;
+using System.Collections.Generic;
+
+namespace Elecelf.MultiThreadUtils
+{
+    /// <summary>
+    /// This class is used to keep a producer-custom queue to fit the query that some operations must be excuted in the main thread, but raised in a child thread.
+    /// 
+    /// Author: elecelf, Snake Liu
+    /// Log:    Apr.2 2014  Create.
+    /// </summary>
+    class AsyncMessageQueue<T>
+    {
+        protected Dictionary<string, Queue<T>> queue = new Dictionary<string, Queue<T>>();
+
+        public Dictionary<string, Queue<T>> Queue
+        {
+            get
+            {
+                return queue;
+            }
+        }
+
+        public void Enqueue(T message, string channel = "default")
+        {
+            Queue<T> channelQueue;
+            if (!queue.TryGetValue(channel, out channelQueue))
+            {
+                queue[channel] = new Queue<T>();
+                channelQueue = queue[channel];
+            }
+            channelQueue.Enqueue(message);
+        }
+
+        public T Dequeue(string channel = "default")
+        {
+            Queue<T> channelQueue;
+            if(queue.TryGetValue(channel, out channelQueue))
+            {
+                if(channelQueue.Count > 0)
+                {
+                    return channelQueue.Dequeue();
+                }
+            }
+
+            return default(T);
+        }
+    }
+}
+'''
