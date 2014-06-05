@@ -48,7 +48,8 @@ Lanyon is developed on and hosted with GitHub. Head to the <a href="https://gith
 Thanks!
 
 Code Test:
-'''C#
+
+```C#
 using System;
 using System.Collections.Generic;
 
@@ -98,4 +99,4 @@ namespace Elecelf.MultiThreadUtils
         }
     }
 }
-'''
+```
