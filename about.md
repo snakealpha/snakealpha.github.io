@@ -4,27 +4,21 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  欢迎访问Elecelf >_< <br />
+  这里是在下怠于更新的博客，大概会不定期地冒出点什么新的东西出来。如果你能从中获得一点乐趣的话，我也会感到十分愉快 ^ ^
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+## 版权
 
-There are currently two themes built on Poole:
+本博客作者为Sanke Liu（刘亭玉）。若非文中特别注明，本博客中文章的版权亦由博客作者保留。
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+若您对本博客中文章感兴趣，在如下情况下，无需联系作者即可使用文章内容：
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+* 满足文章末尾协议声明区域所规定的[知识共享](http://zh.wikipedia.org/zh-cn/创作共用)协议要求使用文章内容。您将看到大多是文章使用CC
+ by-nc协议分享的；如果您需要使用的文章并未加注协议声明，请您认为它是以CC by-nc作为其许可协议的。
+* 如果您需要以文章的协议规定范畴以外的方式使用文章，请通过下文所述方式与我取得联系。
 
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+## 联系作者
+您可以通过下述方式与我取得联系：
+* [新浪微博](http://weibo.com/u/3029729233)
+* [e-mail](elecelf@outlook.com)

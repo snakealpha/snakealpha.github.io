@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Introducing Lanyon
+cc-by: true
+cc-nc: true
+cc-nd: true
+cc-sa: true
 ---
 
 中文测试
