@@ -20,5 +20,12 @@ title: About
 
 ## 联系作者
 您可以通过下述方式与我取得联系：
+
 * [新浪微博](http://weibo.com/u/3029729233)
-* [e-mail](elecelf@outlook.com)
+
+* [e-mail](mailto:elecelf@outlook.com)
+
+* [LinkedIn](http://www.linkedin.com/profile/view?id=238841802)
+
+
+
