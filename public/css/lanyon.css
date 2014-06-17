@@ -431,6 +431,9 @@ a.pagination-item:hover {
 .item-title {
   cursor: hand
 }
+.item-content {
+  display: none;
+}
 .item-title small,
 .item-content small {
   font-size: 60%;
