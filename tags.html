@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 分类
+title: 标签
 ---
 
 <script type="text/javascript">
@@ -11,15 +11,15 @@ title: 分类
 	})
 </script>
 
-<small class="masthead-title">点击分类名称展开或收起文章列表</small>
+<small class="masthead-title">点击标签名称展开或收起文章列表</small>
 
-{% for category in site.categories %}
-<div class="item-title" id="{{ category | first }}">
-	<h2>{{ category | first }}      <small>共{{ category | last | size }}篇文章</small></h2>	
+{% for tag in site.tags %}
+<div class="item-title" id="{{ tag | first }}">
+	<h2>{{ tag | first }}      <small>共{{ tag | last | size }}篇文章</small></h2>	
 </div>
-<div class="item-content" id="{{ category | first }}">
+<div class="item-content" id="{{ tag | first }}">
 	<ul>
-    	{% for post in category.last %}
+    	{% for post in tag.last %}
         	<li><a href="{{ post.url }}">{{ post.title }}</a>      <small>{{ post.date | date:"%d/%m/%Y"}}</small></li>
     	{% endfor %}
 	</ul>
