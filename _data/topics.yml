@@ -1,0 +1,6 @@
+- topic: A
+  is_serializing: true
+
+- topic: B
+  is_serializing: false
+

@@ -13,16 +13,19 @@ sort-id: 3
 	})
 </script>
 
-<small class="masthead-title">点击专题名称展开或收起文章列表</small>
+<small class="masthead-title">点击专题名称展开或收起专题文章列表</small>
 
-{% for category in site.categories %}
-<div class="item-title" id="{{ category | first }}">
-	<h2>{{ category | first }}      <small>共{{ category | last | size }}篇文章</small></h2>	
+{% assign post_list = site.posts | sort: 'topic-sort' %}
+{% for topic in site.data.topics %}
+<div class="item-title" id="{{ topic.topic }}">
+	<h2>{{ topic.topic }}      <small>{% if topic.is_serializing == true %}连载中...{% else %}已完结{% endif %}</small></h2>	
 </div>
-<div class="item-content" id="{{ category | first }}">
+<div class="item-content" id="{{ topic.topic }}">
 	<ul>
-    	{% for post in category.last %}
-        	<li><a href="{{ post.url }}">{{ post.title }}</a>      <small>{{ post.date | date:"%d/%m/%Y"}}</small></li>
+    	{% for post in post_list %}
+    	{% if post.topic == topic.topic %}
+        	<li><a href="{{ post.topic-sort }}.   {{ post.url }}">{{ post.title }}</a>      <small>{{ post.date | date:"%d/%m/%Y" }}</small></li>
+        {% endif %}
     	{% endfor %}
 	</ul>
 </div>

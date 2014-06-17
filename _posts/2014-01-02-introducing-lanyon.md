@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Introducing Lanyon
+
+topic: B
+topic-sort: 1
+
 cc-by: true
 cc-nc: true
 cc-nd: true
