@@ -1,6 +1,7 @@
 - topic: A
   is_serializing: true
+  desc: 这是测试用专题A
 
 - topic: B
   is_serializing: false
-
+  desc: 这是测试用专题B

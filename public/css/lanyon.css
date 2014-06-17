@@ -428,9 +428,6 @@ a.pagination-item:hover {
  *
  * Apply to items page of category, tag and topic.
  */
-.item-title {
-  cursor: hand
-}
 .item-content {
   display: none;
 }
@@ -445,7 +442,8 @@ a.pagination-item:hover {
   margin-bottom: 1rem;
   padding: 1rem;
   color: #717171;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
+  border:solid 1px #fafafa;
 }
 
 /*

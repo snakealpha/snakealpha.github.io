@@ -13,12 +13,15 @@ sort-id: 3
 	})
 </script>
 
-<small class="masthead-title">点击专题名称展开或收起专题文章列表</small>
+<small class="masthead-title">点击专题名称展开或收起专题目录</small>
 
 {% assign post_list = site.posts | sort: 'topic-sort' %}
 {% for topic in site.data.topics %}
 <div class="item-title" id="{{ topic.topic }}">
-	<h2>{{ topic.topic }}      <small>{% if topic.is_serializing == true %}连载中...{% else %}已完结{% endif %}</small></h2>	
+	<h2>{{ topic.topic }}      <small>{% if topic.is_serializing == true %}连载中...{% else %}已完结{% endif %}</small></h2>
+	<p class="message">
+		{{ topic.desc }}
+	</p>
 </div>
 <div class="item-content" id="{{ topic.topic }}">
 	<ul>
