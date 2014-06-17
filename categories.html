@@ -6,7 +6,7 @@ title: Category
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".item-title").click(function(){
-			$(".item-content#" + $(this).id).slideToggle("fast");
+			$(".item-content#" + this.id).slideToggle("fast");
 		})
 	})
 </script>
@@ -17,10 +17,12 @@ title: Category
 <div class="item-title" id="{{ category | first }}">
 	<h2>{{ category | first }}      <small>共{{ category | last | size }}篇文章</small></h2>	
 </div>
-<ul class="item-content" id="{{ category | first }}">
-    {% for post in category.last %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a>      <small>{{ post.date | date:"%d/%m/%Y"}}</small></li>
-    {% endfor %}
-</ul>
-<hr width="70%" />
+<div class="item-content" id="{{ category | first }}">
+	<ul>
+    	{% for post in category.last %}
+        	<li><a href="{{ post.url }}">{{ post.title }}</a>      <small>{{ post.date | date:"%d/%m/%Y"}}</small></li>
+    	{% endfor %}
+	</ul>
+	<hr width="70%" />
+</div>
 {% endfor %}
