@@ -1,6 +1,8 @@
 ---
 layout: page
 title: 分类
+
+sort-id: 2
 ---
 
 <script type="text/javascript">

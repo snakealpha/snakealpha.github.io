@@ -1,6 +1,8 @@
 ---
 layout: page
 title: 标签
+
+sort-id: 1
 ---
 
 <script type="text/javascript">

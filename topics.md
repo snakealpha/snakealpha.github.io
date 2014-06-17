@@ -1,6 +1,8 @@
 ---
 layout: page
 title: 专题
+
+sort-id: 3
 ---
 
 <script type="text/javascript">
