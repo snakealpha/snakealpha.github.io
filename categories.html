@@ -3,14 +3,23 @@ layout: default
 title: Category
 ---
 
-<h1>分类</h1>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".item-title").click(function(){
+			$(".item-content#" + $(this).id).slideToggle("fast");
+		})
+	})
+</script>
+
+<h1>分类<small class="masthead-title">点击分类名称展开或收起文章列表</small></h1>
 
 {% for category in site.categories %}
-<div class="item-title">
-	<h2>{{ category | first }}</h2>
-	<small>共{{ category | last | size }}篇文章</small>
+<div class="item-title" id="{{ category | first }}">
+	<h2>{{ category | first }}<small>共{{ category | last | size }}篇文章</small></h2>	
 </div>
-<ul class="item-content">
+<ul class="item-content" id="{{ category | first }}">
     {% for post in category.last %}
         <li><a href="{{ post.url }}">{{ post.title }}</a>   <small>{{ post.date | date:"%d/%m/%Y"}}</small></li>
     {% endfor %}

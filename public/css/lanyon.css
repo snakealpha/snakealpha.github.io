@@ -428,6 +428,9 @@ a.pagination-item:hover {
  *
  * Apply to items page of category, tag and topic.
  */
+.item-title {
+  cursor: hand
+}
 .item-title small,
 .item-content small {
   font-size: 60%;
