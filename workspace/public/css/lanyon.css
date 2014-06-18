@@ -464,6 +464,16 @@ a.pagination-item:hover {
   background-color: #f9f9f9;
 }
 
+.page-reference-block div {
+  position: absolute;
+  bottom: 0px;
+}
+.page-reference-block small
+{
+  color: #c0c0c0;
+  font-size: 60%;
+}
+
 /*
  * Themes
  *
