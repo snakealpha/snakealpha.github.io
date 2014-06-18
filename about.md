@@ -30,5 +30,6 @@ sort-id: 4
 * [LinkedIn](http://www.linkedin.com/profile/view?id=238841802)
 
 
-<hr width="100%" />
-### 本站地址 [http://elecelf.info](http://elecelf.info)
+
+### 本站域名 [http://elecelf.info](http://elecelf.info)
+
