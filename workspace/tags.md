@@ -15,10 +15,6 @@ sort-id: 1
 
 <small class="masthead-title">点击标签名称展开或收起文章列表</small>
 
-{% if site.tags | size == 0 %}
-<p class="message">当前还没有标签</p>
-{% endif %}
-
 {% for tag in site.tags %}
 <div class="item-title" id="{{ tag | first }}">
 	<h2>{{ tag | first }}      <small>共{{ tag | last | size }}篇文章</small></h2>	

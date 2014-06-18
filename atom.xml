@@ -4,13 +4,26 @@
  <title>Elecelf</title>
  <link href="http://snakealpha.github.io//atom.xml" rel="self"/>
  <link href="http://snakealpha.github.io//"/>
- <updated>2014-06-18T18:42:10+08:00</updated>
+ <updated>2014-06-18T19:31:37+08:00</updated>
  <id>http://snakealpha.github.io/</id>
  <author>
    <name>Snake Liu</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Github Pages 的首篇博客</title>
+   <link href="http://snakealpha.github.io//2014/06/18/Hello-World/"/>
+   <updated>2014-06-18T00:00:00+08:00</updated>
+   <id>http://snakealpha.github.io//2014/06/18/Hello-World</id>
+   <content type="html">&lt;p&gt;刚刚搞定对Lanyon模板的种种修改。这种对html和css的操作，对我这种对网页一窍不通的孩子来说还真是残酷至极 T_T&lt;/p&gt;
+
+&lt;p&gt;Github Pages生成静态页面的方式果然还是颇多限制...不过看在免费又可以绑定域名的份上，好像也没办法抱怨啥 -_-&lt;/p&gt;
+
+&lt;p&gt;因为没有搞定首页&amp;quot;暂时没有文章&amp;quot;的显示，所以特意摆上这篇凑数的博客。&lt;/p&gt;
+</content>
+ </entry>
  
 
 </feed>
