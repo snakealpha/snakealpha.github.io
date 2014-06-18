@@ -450,7 +450,15 @@ a.pagination-item:hover {
   padding: 1rem;
   color: #717171;
   background-color: #f0f0f0;
-  border:solid 1px #fafafa;
+  border:solid 1px #f2f2f2;
+}
+.item-content li {
+  list-style: none;
+}
+.topic-desc {  
+  padding: 5px;
+  font-size: 80%;
+  background-color: #f9f9f9;
 }
 
 /*
