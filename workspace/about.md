@@ -23,6 +23,8 @@ sort-id: 4
 ## 联系作者
 您可以通过下述方式与我取得联系：
 
+* [Github](http://github.com/snakealpha)
+
 * [新浪微博](http://weibo.com/u/3029729233)
 
 * [e-mail](mailto:elecelf@outlook.com)
