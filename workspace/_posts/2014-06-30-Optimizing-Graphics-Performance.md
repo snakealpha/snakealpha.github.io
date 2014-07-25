@@ -8,7 +8,7 @@ categories: [Unity3D]
 by-nc: true
 ---
 
-<small>本文为Unity3D官方文档[Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)的中文翻译。</small>
+<small>本文为Unity3D官方文档[Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)的中文翻译。在这篇文章中，Unity官方提到了很多优化方面的方向性思路，是一篇具有指导性意义的文献。</small>
 
 对于一款游戏的成功来说，好的性能总是至关重要。本文中包含了一些能够有效提升你的游戏性能的指导原则。
 
@@ -85,3 +85,73 @@ by-nc: true
 作为一个例子，想象一下在一个赛车游戏中，玩家开着车的前灯在黑夜中驾驶。车的前灯显然是游戏中所有可见光源里最明亮的，因此他们的Render Mode应该被设为Important。另一方面，游戏中的其他光源相比之下重要性较弱（比如前车的尾灯），因此不需要使用像素光源来保证其显示效果。这些光源的Render Mode就可以设置为Not Important来避免浪费渲染性能。
 
 优化每像素光照对CPU和GPU都有好处：CPU可以产生较少的draw call，GPU可以处理更少的顶点，亦能在光栅化的过程里为这些物体处理更少的像素。
+
+# GPU优化：纹理压缩和Mipmap
+
+使用[压缩纹理](http://docs.unity3d.com/Manual/class-TextureImporter.html)将有效减小你的纹理尺寸（并带来更快的加载速度和更小的内存消耗），同时亦能够有效提升渲染性能。相比于未压缩的32bit ARGB格式纹理，压缩后的纹理只会使用一小部分内存带宽。
+
+## 使用Mipmap
+
+粗略的说，在3D场景中应当一直保持[生成Mipmap](http://docs.unity3d.com/Manual/class-TextureImporter.html)选项的开启。出于和纹理压缩能够在GPU渲染过程中帮助减小传输到GPU的纹理数据的尺寸相同的目的，启用mipmap的纹理能够在较小的三角形上使用较低分辨率的纹理。
+
+这一规则的唯一例外就是当已经确定纹理中的图素和屏幕像素是1：1对应的情况，这种情况会在UI元素和2D游戏中出现。
+
+# LOD和每层剔除距离
+
+在一些游戏中，为了减小CPU与GPU的负担，可以剔除一些小的活动物体。举例来说，可以在一个比较远的距离上剔除小石子和岩屑，而依然保证同样距离的大楼可见。
+
+这可以通过[细节等级](http://docs.unity3d.com/Manual/LevelOfDetail.html)系统实现，也能借助于在摄像机上手工设置每层的剔除距离。你可以把较小的物体摆到[独立的层](http://docs.unity3d.com/Manual/Layers.html)上，再使用[Camera.layerCullDistances](http://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html)方法设置该层的剔除距离。
+
+# 实时阴影
+
+实时阴影很炫，但是对性能也有重大影响，既有额外的Drawcall消耗CPU的性能，有需要GPU做出额外处理。要获得进一步细节，请参考[阴影](http://docs.unity3d.com/Manual/Shadows.html)。
+
+# GPU优化：关于编写高性能着色器的建议
+
+一个PC的高端GPU和一个移动平台的低端GPU之间可能足有几百倍的性能差距。即便同在一个平台上，还是会有类似情况：较快的GPU比较慢的集成GPU快上若干倍；而移动平台上不同档次GPU之间的差距也与此类似。
+
+所以，无比时刻牢记移动平台或是低端电脑上的GPU会比你的开发机慢得多。通常，着色器都会需要手工优化来减小运算量和纹理读取操作，以此换得较好的性能。举例来说，Unity内置着色器往往都有它们的"mobile"等效版本，运行的比原版快得多（但是当然会有着很多限制和局限性，因此才会比较快）。
+
+下面有一些对于移动平台和低端显卡较为重要的指导原则：
+
+## 复杂数学操作
+
+要实现复杂的数学函数（比如pow, exp, log, cos, sin, tan等等）得付出昂贵的代价，因此一个大略的指导原则是不要在每个像素操作中出现一个以上这类操作。如果有必要，考虑使用处理过的纹理代替着色器实现效果。
+
+不要实现你自己的normalize，dot，inversesqt操作。内建的版本会生成更好的代码，充分利用GPU内建的功能而不是凭蛮力计算。
+
+始终牢记可见性检测会拖慢片段着色器的处理速度。
+
+## 浮点数操作
+
+在编写自定义的着色器时你应当始终明确指定浮点数变量的精度。为了获得最优的性能，必须**严格确保浮点数保持能够满足需要的最小精度**。对于很多台式机GPU来说，这点确实无关紧要，但是对于移动平台GPU来说这十分重要。
+
+如果着色器使用Cg/HLSL写就，时刻牢记下面这些内容：
+
+ - float 完整的32位浮点数，适用于顶点变换的情景，最慢；
+ - half 半精度的16位浮点数，适用于纹理UV坐标，性能是float的两倍；
+ - fixed 10位顶点格式，使用于颜色，光照计算以及其他高性能操作，性能是float的4倍。
+
+如果着色器使用GLSL ES写成，那么浮点精度由highp，mediump，lowp指定。
+
+要获得更多关于着色器性能的建议，请移步[着色器性能](http://docs.unity3d.com/Manual/SL-ShaderPerformance.html)。
+
+# 改善游戏性能的CheckList
+
+ - 若定位于PC端，根据目标GPU的不同保持顶点数在每帧200K到3M个之间；
+ - 如果要是用内建着色器，尽量使用Mobile和Unlit的版本。它们同样可以工作在非移动平台上，是更复杂版本的简化版；
+ - 在每个场景中保持尽量少的不同材质——尽可能在不同物体之间共享材质；
+ - 勾选静止物体的**static**选项来启用[静态批处理](http://docs.unity3d.com/Manual/DrawCallBatching.html)之类的内部优化；
+ - 如果没有必要就不要使用**像素光源**——只使用一个像素光源（并且最好是方向光源）照射你的几何体；
+ - 如果没有必要不要使用动态光源——用烘焙来替代；
+ - 只要可能就使用压缩纹理，就算不行也尽量使用16位色而非32位色；
+ - 没必要就不要使用雾化；
+ - 学习和使用[封闭剔除](http://docs.unity3d.com/Manual/OcclusionCulling.html)功能来减少有大量不可见元素的复杂静态场景中不可见的集合体数量以及因此产生的多余drawcall。依据封闭剔除特性规划你的关卡；
+ - 使用天空盒制作假的远方物体；
+ - 使用像素着色器或纹理包含来混合多种纹理，避免使用多个pass的方式；
+ - 写自定义的着色器时，牢记以下的浮点数类型：
+  - fixed/lowp 用于颜色，光线信息和法线
+  - half/mediump 用于纹理UV坐标；
+  - float/highp 避免在像素着色器中使用，尽量只用于顶点着色器的坐标位置计算
+ - 在像素着色器中尽量少用诸如pow,sin,cos这样的复杂数学操作符；
+ - 每个片段尽量少用纹理。
