@@ -20,11 +20,11 @@
 
 
 
-  <meta name="keywords" content="图形,译文," />
+  <meta name="keywords" content="译文,图形," />
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Elecelf Site." type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Snake's Site." type="application/atom+xml" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <title> Unity3D 图形性能优化 // Elecelf Site. </title>
+  <title> Unity3D 图形性能优化 // Snake's Site. </title>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">Elecelf Site.</span>
+      <span class="site-title">Snake's Site.</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -192,7 +192,7 @@
 
       
         <p>对于一款游戏的成功来说，好的性能总是至关重要。本文中包含了一些能够有效提升你的游戏性能的指导原则。</p>
-<h2 id="图形性能被耗在哪里？">图形性能被耗在哪里？</h2><p>你游戏中的图形部分主要会消耗两种系统资源：GPU和CPU。然而，由于针对GPU与CPU的优化策略大相径庭（甚至完全相反——为了优化CPU性能，你往往需要让GPU承担更多工作，反之亦然），对于任何优化行动，至关重要的第一步总是<strong>定位性能问题的发生点</strong>。</p>
+<h2 id="图形性能被耗在哪里？"><a href="#图形性能被耗在哪里？" class="headerlink" title="图形性能被耗在哪里？"></a>图形性能被耗在哪里？</h2><p>你游戏中的图形部分主要会消耗两种系统资源：GPU和CPU。然而，由于针对GPU与CPU的优化策略大相径庭（甚至完全相反——为了优化CPU性能，你往往需要让GPU承担更多工作，反之亦然），对于任何优化行动，至关重要的第一步总是<strong>定位性能问题的发生点</strong>。</p>
 <p>典型的性能瓶颈以及它们的判断方法包括：</p>
 <ul>
 <li><p>GPU往往受制于<strong>填充率</strong>和内存带宽。</p>
@@ -217,7 +217,7 @@
 <li><p>有一些功能需要依赖CPU处理顶点，因此CPU需要处理的顶点过多也可能成为瓶颈。skinned mesh，布料模拟和粒子系统都需要依赖于CPU。</p>
 </li>
 </ul>
-<h2 id="CPU优化——抑制draw_call">CPU优化——抑制draw call</h2><p>为了在屏幕上渲染物体，CPU也有一些工作要做，比如说确定影响物体的光源，设置着色器以及着色器参数，以及准备和发送绘图命令到图形驱动。CPU需要为<strong>每个物体</strong>完成这些工作，这并不轻松。要是你偏偏有很多可视的物体需要处理…那就更惨了。</p>
+<h2 id="CPU优化——抑制draw-call"><a href="#CPU优化——抑制draw-call" class="headerlink" title="CPU优化——抑制draw call"></a>CPU优化——抑制draw call</h2><p>为了在屏幕上渲染物体，CPU也有一些工作要做，比如说确定影响物体的光源，设置着色器以及着色器参数，以及准备和发送绘图命令到图形驱动。CPU需要为<strong>每个物体</strong>完成这些工作，这并不轻松。要是你偏偏有很多可视的物体需要处理…那就更惨了。</p>
 <p>因此，比如当你有几千个三角形需要处理的时候，相比于分别处理几千个各自只包含了一个三角形的网格，一次处理拥有几千个三角形的网格要高效得多。虽然对于GPU来说这两种情况基本是一回事，对CPU来说处理几千个物体的花销可就相当可观了。</p>
 <p>为了减轻CPU的工作负担，减少可见物体的数量总是个好办法。比如做这些事试试：</p>
 <ul>
@@ -230,7 +230,7 @@
 </ul>
 <p>可以通过合并物体使至少几百个三角形形成只使用一种<strong>材质</strong>的网格。务必记得合并两个并未共享同一材质的对象并不能使性能有所提升。最常见的多个物体不共享同一材质的原因在于，这些网格并没有使用相同的纹理。在这种情况下，要实现优化CPU性能的目的，你得确保你合并的所有网格使用了相同的纹理。</p>
 <p>在<a href="http://docs.unity3d.com/Manual/RenderTech-ForwardRendering.html" target="_blank" rel="external">Forward渲染路径</a>中，如果使用多个像素光源，合并对象有可能没啥效果。下文会对此做出解释。</p>
-<h2 id="GPU：几何建模优化">GPU：几何建模优化</h2><p>当试图优化一个模型的几何结构时，有两个基本原则：</p>
+<h2 id="GPU：几何建模优化"><a href="#GPU：几何建模优化" class="headerlink" title="GPU：几何建模优化"></a>GPU：几何建模优化</h2><p>当试图优化一个模型的几何结构时，有两个基本原则：</p>
 <ul>
 <li><p>不要使用多于必要的三角形。</p>
 </li>
@@ -239,7 +239,7 @@
 </ul>
 <p>注意，图形硬件实际上需要处理的顶点数往往与3D应用汇报的数字不同。建模软件显示的通常只是几何上的顶点数。而对于显卡来说，一些结合顶点需要被分割成多个逻辑上的顶点才能完成渲染。如果一个顶点拥有多个法线，UV坐标或者顶点色参数，这个顶点就必须被拆分了。因此，Unity中显示的顶点数基本上会高于3D软件中给出的顶点数。</p>
 <p>模型中的几何体大多是由CPU处理的，但是Unity中的一些功能需要使用CPU处理模型，比如网格皮肤。</p>
-<h2 id="光照性能">光照性能</h2><p>无需计算的光照是最快的！使用<a href="http://docs.unity3d.com/Manual/Lightmapping.html" target="_blank" rel="external">光照贴图</a>来”烘焙”静态光源的过程只需要进行一次，就能在每一帧里替代光照处理的计算。在Unity中生成一个光照贴图的工作只比单单将一个光源放到场景中麻烦一点点，<strong>但是：</strong></p>
+<h2 id="光照性能"><a href="#光照性能" class="headerlink" title="光照性能"></a>光照性能</h2><p>无需计算的光照是最快的！使用<a href="http://docs.unity3d.com/Manual/Lightmapping.html" target="_blank" rel="external">光照贴图</a>来”烘焙”静态光源的过程只需要进行一次，就能在每一帧里替代光照处理的计算。在Unity中生成一个光照贴图的工作只比单单将一个光源放到场景中麻烦一点点，<strong>但是：</strong></p>
 <ul>
 <li><p>这样程序能跑得快得多（在有两个像素光源的情况下，能快上2-3倍）</p>
 </li>
@@ -247,24 +247,24 @@
 </li>
 </ul>
 <p>有很多简单的方法可以伪造出布设光源才能取得的效果（比如通过着色器，或是定制资源本身）。举例来说，如果需要轮廓照明的效果，可以不用真的添加一个直射摄像机的光源，只要直接在你的着色器里加上专用的”rim lighting”计算即可。</p>
-<h3 id="Forward渲染路径下的光照">Forward渲染路径下的光照</h3><p>每像素动态光照会显著增大受其影响的每个像素的渲染负担，并且需要对每个物体使用多个pass。在性能较低的图形设备比如移动设备或者低端的PC GPU上，尽量不要出现超过一个受到每像素光照的光源影响的物体，并对静态物体使用光照贴图，而不是使用动态光源每帧计算光照。每顶点动态光照会增加顶点变换所需要的花销。应当努力避免有物体同时受到多个光源照射的情况。</p>
+<h3 id="Forward渲染路径下的光照"><a href="#Forward渲染路径下的光照" class="headerlink" title="Forward渲染路径下的光照"></a>Forward渲染路径下的光照</h3><p>每像素动态光照会显著增大受其影响的每个像素的渲染负担，并且需要对每个物体使用多个pass。在性能较低的图形设备比如移动设备或者低端的PC GPU上，尽量不要出现超过一个受到每像素光照的光源影响的物体，并对静态物体使用光照贴图，而不是使用动态光源每帧计算光照。每顶点动态光照会增加顶点变换所需要的花销。应当努力避免有物体同时受到多个光源照射的情况。</p>
 <p>如果你使用像素光源，则你的网格背多少像素光源照到，光照就得被渲染多少次。如果你连接了两个离得相当远的网格，则整个连接后的对象都会受到影响。所有像素光源无论照射到这个物体的哪个部分，都会在渲染时产生影响，因此需要进行的渲染pass数量也会增大。理想情况下，连接后的物体必须被渲染的pass数目是物体连接之前需要的pass之和，而连接不造成什么损失。为了达成这一点，你需要避免连接那些离得远到被不同像素光源照到的物体。</p>
 <p>渲染时，Unity会寻找一个网格周边的所有光源，并从中找到对网格影响最大的光源。<a href="http://docs.unity3d.com/Manual/class-QualitySettings.html" target="_blank" rel="external">Quality Settings</a>可用于修改光源中像素光源和顶点光源各自的数量。每个光源会依据它离网格的距离以及光线强度算出其重要性。尽管如此，总会有一些光源设计上就比其他光源来得重要。在这种情况下，修改光源的<em>Render Mode</em>属性为<em>Important</em>或者<em>Not Important</em>；被指定为<em>Not Important</em>的光源一定会使用较低花销的方法来渲染。</p>
 <p>作为一个例子，想象一下在一个赛车游戏中，玩家开着车的前灯在黑夜中驾驶。车的前灯显然是游戏中所有可见光源里最明亮的，因此他们的Render Mode应该被设为Important。另一方面，游戏中的其他光源相比之下重要性较弱（比如前车的尾灯），因此不需要使用像素光源来保证其显示效果。这些光源的Render Mode就可以设置为Not Important来避免浪费渲染性能。</p>
 <p>优化每像素光照对CPU和GPU都有好处：CPU可以产生较少的draw call，GPU可以处理更少的顶点，亦能在光栅化的过程里为这些物体处理更少的像素。</p>
-<h2 id="GPU优化：纹理压缩和Mipmap">GPU优化：纹理压缩和Mipmap</h2><p>使用<a href="http://docs.unity3d.com/Manual/class-TextureImporter.html" target="_blank" rel="external">压缩纹理</a>将有效减小你的纹理尺寸（并带来更快的加载速度和更小的内存消耗），同时亦能够有效提升渲染性能。相比于未压缩的32bit ARGB格式纹理，压缩后的纹理只会使用一小部分内存带宽。</p>
-<h2 id="使用Mipmap">使用Mipmap</h2><p>粗略的说，在3D场景中应当一直保持<a href="http://docs.unity3d.com/Manual/class-TextureImporter.html" target="_blank" rel="external">生成Mipmap</a>选项的开启。出于和纹理压缩能够在GPU渲染过程中帮助减小传输到GPU的纹理数据的尺寸相同的目的，启用mipmap的纹理能够在较小的三角形上使用较低分辨率的纹理。</p>
+<h2 id="GPU优化：纹理压缩和Mipmap"><a href="#GPU优化：纹理压缩和Mipmap" class="headerlink" title="GPU优化：纹理压缩和Mipmap"></a>GPU优化：纹理压缩和Mipmap</h2><p>使用<a href="http://docs.unity3d.com/Manual/class-TextureImporter.html" target="_blank" rel="external">压缩纹理</a>将有效减小你的纹理尺寸（并带来更快的加载速度和更小的内存消耗），同时亦能够有效提升渲染性能。相比于未压缩的32bit ARGB格式纹理，压缩后的纹理只会使用一小部分内存带宽。</p>
+<h2 id="使用Mipmap"><a href="#使用Mipmap" class="headerlink" title="使用Mipmap"></a>使用Mipmap</h2><p>粗略的说，在3D场景中应当一直保持<a href="http://docs.unity3d.com/Manual/class-TextureImporter.html" target="_blank" rel="external">生成Mipmap</a>选项的开启。出于和纹理压缩能够在GPU渲染过程中帮助减小传输到GPU的纹理数据的尺寸相同的目的，启用mipmap的纹理能够在较小的三角形上使用较低分辨率的纹理。</p>
 <p>这一规则的唯一例外就是当已经确定纹理中的图素和屏幕像素是1：1对应的情况，这种情况会在UI元素和2D游戏中出现。</p>
-<h2 id="LOD和每层剔除距离">LOD和每层剔除距离</h2><p>在一些游戏中，为了减小CPU与GPU的负担，可以剔除一些小的活动物体。举例来说，可以在一个比较远的距离上剔除小石子和岩屑，而依然保证同样距离的大楼可见。</p>
+<h2 id="LOD和每层剔除距离"><a href="#LOD和每层剔除距离" class="headerlink" title="LOD和每层剔除距离"></a>LOD和每层剔除距离</h2><p>在一些游戏中，为了减小CPU与GPU的负担，可以剔除一些小的活动物体。举例来说，可以在一个比较远的距离上剔除小石子和岩屑，而依然保证同样距离的大楼可见。</p>
 <p>这可以通过<a href="http://docs.unity3d.com/Manual/LevelOfDetail.html" target="_blank" rel="external">细节等级</a>系统实现，也能借助于在摄像机上手工设置每层的剔除距离。你可以把较小的物体摆到<a href="http://docs.unity3d.com/Manual/Layers.html" target="_blank" rel="external">独立的层</a>上，再使用<a href="http://docs.unity3d.com/ScriptReference/Camera-layerCullDistances.html" target="_blank" rel="external">Camera.layerCullDistances</a>方法设置该层的剔除距离。</p>
-<h2 id="实时阴影">实时阴影</h2><p>实时阴影很炫，但是对性能也有重大影响，既有额外的Drawcall消耗CPU的性能，有需要GPU做出额外处理。要获得进一步细节，请参考<a href="http://docs.unity3d.com/Manual/Shadows.html" target="_blank" rel="external">阴影</a>。</p>
-<h2 id="GPU优化：关于编写高性能着色器的建议">GPU优化：关于编写高性能着色器的建议</h2><p>一个PC的高端GPU和一个移动平台的低端GPU之间可能足有几百倍的性能差距。即便同在一个平台上，还是会有类似情况：较快的GPU比较慢的集成GPU快上若干倍；而移动平台上不同档次GPU之间的差距也与此类似。</p>
+<h2 id="实时阴影"><a href="#实时阴影" class="headerlink" title="实时阴影"></a>实时阴影</h2><p>实时阴影很炫，但是对性能也有重大影响，既有额外的Drawcall消耗CPU的性能，有需要GPU做出额外处理。要获得进一步细节，请参考<a href="http://docs.unity3d.com/Manual/Shadows.html" target="_blank" rel="external">阴影</a>。</p>
+<h2 id="GPU优化：关于编写高性能着色器的建议"><a href="#GPU优化：关于编写高性能着色器的建议" class="headerlink" title="GPU优化：关于编写高性能着色器的建议"></a>GPU优化：关于编写高性能着色器的建议</h2><p>一个PC的高端GPU和一个移动平台的低端GPU之间可能足有几百倍的性能差距。即便同在一个平台上，还是会有类似情况：较快的GPU比较慢的集成GPU快上若干倍；而移动平台上不同档次GPU之间的差距也与此类似。</p>
 <p>所以，无比时刻牢记移动平台或是低端电脑上的GPU会比你的开发机慢得多。通常，着色器都会需要手工优化来减小运算量和纹理读取操作，以此换得较好的性能。举例来说，Unity内置着色器往往都有它们的”mobile”等效版本，运行的比原版快得多（但是当然会有着很多限制和局限性，因此才会比较快）。</p>
 <p>下面有一些对于移动平台和低端显卡较为重要的指导原则：</p>
-<h3 id="复杂数学操作">复杂数学操作</h3><p>要实现复杂的数学函数（比如pow, exp, log, cos, sin, tan等等）得付出昂贵的代价，因此一个大略的指导原则是不要在每个像素操作中出现一个以上这类操作。如果有必要，考虑使用处理过的纹理代替着色器实现效果。</p>
+<h3 id="复杂数学操作"><a href="#复杂数学操作" class="headerlink" title="复杂数学操作"></a>复杂数学操作</h3><p>要实现复杂的数学函数（比如pow, exp, log, cos, sin, tan等等）得付出昂贵的代价，因此一个大略的指导原则是不要在每个像素操作中出现一个以上这类操作。如果有必要，考虑使用处理过的纹理代替着色器实现效果。</p>
 <p>不要实现你自己的normalize，dot，inversesqt操作。内建的版本会生成更好的代码，充分利用GPU内建的功能而不是凭蛮力计算。</p>
 <p>始终牢记可见性检测会拖慢片段着色器的处理速度。</p>
-<h3 id="浮点数操作">浮点数操作</h3><p>在编写自定义的着色器时你应当始终明确指定浮点数变量的精度。为了获得最优的性能，必须<strong>严格确保浮点数保持能够满足需要的最小精度</strong>。对于很多台式机GPU来说，这点确实无关紧要，但是对于移动平台GPU来说这十分重要。</p>
+<h3 id="浮点数操作"><a href="#浮点数操作" class="headerlink" title="浮点数操作"></a>浮点数操作</h3><p>在编写自定义的着色器时你应当始终明确指定浮点数变量的精度。为了获得最优的性能，必须<strong>严格确保浮点数保持能够满足需要的最小精度</strong>。对于很多台式机GPU来说，这点确实无关紧要，但是对于移动平台GPU来说这十分重要。</p>
 <p>如果着色器使用Cg/HLSL写就，时刻牢记下面这些内容：</p>
 <ul>
 <li>float 完整的32位浮点数，适用于顶点变换的情景，最慢；</li>
@@ -273,7 +273,7 @@
 </ul>
 <p>如果着色器使用GLSL ES写成，那么浮点精度由highp，mediump，lowp指定。</p>
 <p>要获得更多关于着色器性能的建议，请移步<a href="http://docs.unity3d.com/Manual/SL-ShaderPerformance.html" target="_blank" rel="external">着色器性能</a>。</p>
-<h2 id="改善游戏性能的CheckList">改善游戏性能的CheckList</h2><ul>
+<h2 id="改善游戏性能的CheckList"><a href="#改善游戏性能的CheckList" class="headerlink" title="改善游戏性能的CheckList"></a>改善游戏性能的CheckList</h2><ul>
 <li>若定位于PC端，根据目标GPU的不同保持顶点数在每帧200K到3M个之间；</li>
 <li>如果要是用内建着色器，尽量使用Mobile和Unlit的版本。它们同样可以工作在非移动平台上，是更复杂版本的简化版；</li>
 <li>在每个场景中保持尽量少的不同材质——尽可能在不同物体之间共享材质；</li>
@@ -302,13 +302,25 @@
       
         <div class="post-tags">
           
-            <a href="/tags/图形/"> #图形 </a>
-          
             <a href="/tags/译文/"> #译文 </a>
+          
+            <a href="/tags/图形/"> #图形 </a>
           
         </div>
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/Cpp-Reflection-Explorer/">C++反射探索</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -371,21 +383,21 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -436,7 +448,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形性能被耗在哪里？"><span class="nav-number">1.</span> <span class="nav-text">图形性能被耗在哪里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU优化——抑制draw_call"><span class="nav-number">2.</span> <span class="nav-text">CPU优化——抑制draw call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU：几何建模优化"><span class="nav-number">3.</span> <span class="nav-text">GPU：几何建模优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光照性能"><span class="nav-number">4.</span> <span class="nav-text">光照性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward渲染路径下的光照"><span class="nav-number">4.1.</span> <span class="nav-text">Forward渲染路径下的光照</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU优化：纹理压缩和Mipmap"><span class="nav-number">5.</span> <span class="nav-text">GPU优化：纹理压缩和Mipmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Mipmap"><span class="nav-number">6.</span> <span class="nav-text">使用Mipmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOD和每层剔除距离"><span class="nav-number">7.</span> <span class="nav-text">LOD和每层剔除距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时阴影"><span class="nav-number">8.</span> <span class="nav-text">实时阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU优化：关于编写高性能着色器的建议"><span class="nav-number">9.</span> <span class="nav-text">GPU优化：关于编写高性能着色器的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂数学操作"><span class="nav-number">9.1.</span> <span class="nav-text">复杂数学操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点数操作"><span class="nav-number">9.2.</span> <span class="nav-text">浮点数操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改善游戏性能的CheckList"><span class="nav-number">10.</span> <span class="nav-text">改善游戏性能的CheckList</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形性能被耗在哪里？"><span class="nav-number">1.</span> <span class="nav-text">图形性能被耗在哪里？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU优化——抑制draw-call"><span class="nav-number">2.</span> <span class="nav-text">CPU优化——抑制draw call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU：几何建模优化"><span class="nav-number">3.</span> <span class="nav-text">GPU：几何建模优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光照性能"><span class="nav-number">4.</span> <span class="nav-text">光照性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward渲染路径下的光照"><span class="nav-number">4.1.</span> <span class="nav-text">Forward渲染路径下的光照</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU优化：纹理压缩和Mipmap"><span class="nav-number">5.</span> <span class="nav-text">GPU优化：纹理压缩和Mipmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Mipmap"><span class="nav-number">6.</span> <span class="nav-text">使用Mipmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOD和每层剔除距离"><span class="nav-number">7.</span> <span class="nav-text">LOD和每层剔除距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时阴影"><span class="nav-number">8.</span> <span class="nav-text">实时阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU优化：关于编写高性能着色器的建议"><span class="nav-number">9.</span> <span class="nav-text">GPU优化：关于编写高性能着色器的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂数学操作"><span class="nav-number">9.1.</span> <span class="nav-text">复杂数学操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点数操作"><span class="nav-number">9.2.</span> <span class="nav-text">浮点数操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改善游戏性能的CheckList"><span class="nav-number">10.</span> <span class="nav-text">改善游戏性能的CheckList</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -454,7 +466,7 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2017
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>

@@ -944,11 +944,19 @@ body {
   font-size: 20px;
   font-weight: normal;
 }
+.site-subtitle {
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: normal;
+}
 .use-motion .brand {
   opacity: 0;
 }
 .use-motion .logo,
-.use-motion .site-title {
+.use-motion .site-title,
+.use-motion .site-subtitle {
   opacity: 0;
   position: relative;
   top: -10px;
@@ -1167,7 +1175,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c900cd;
+  background: #ffc2ff;
 }
 .sidebar-nav {
   margin: 0;
@@ -2028,6 +2036,15 @@ ul li {
 }
 @media (max-width: 767px) {
   .site-meta .site-title {
+    line-height: 34px;
+  }
+}
+.site-meta .site-subtitle {
+  font-size: 16px;
+  font-weight: normal;
+}
+@media (max-width: 767px) {
+  .site-meta .site-subtitle {
     line-height: 34px;
   }
 }

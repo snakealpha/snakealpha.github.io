@@ -20,7 +20,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="C++,反射," />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <title> Snake's Site. </title>
+  <title> C++反射探索 // Snake's Site. </title>
 </head>
 
 <body>
@@ -59,9 +59,7 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -137,9 +135,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -150,9 +148,7 @@
           
           
             
-              <a class="post-title-link" href="/2017/Cpp-Reflection-Explorer/">
-                C++反射探索
-              </a>
+              C++反射探索
             
           
         </h1>
@@ -195,8 +191,7 @@
       
 
       
-        
-          <p>C++作为一个本地开发系统，提供了尽可能高的执行效率和纤细的输出体积，然而不能提供运行时反射功能到底是一个遗憾。作为一种打法时间的方式，我们在本系列文章当中针对C++运行时反射的实现进行一些探索，在实现这一颇具实用性的功能的同时，还能一窥与其各个步骤相关联的知识。</p>
+        <p>C++作为一个本地开发系统，提供了尽可能高的执行效率和纤细的输出体积，然而不能提供运行时反射功能到底是一个遗憾。作为一种打法时间的方式，我们在本系列文章当中针对C++运行时反射的实现进行一些探索，在实现这一颇具实用性的功能的同时，还能一窥与其各个步骤相关联的知识。</p>
 <p>对于实现一个C++运行时反射框架来说，主要涉及到如下的几个问题：</p>
 <ul>
 <li><del>假装没看到现成的解决方案</del></li>
@@ -260,108 +255,54 @@
 <li>利用clang-plugin扫描源代码 [Uncompleted]</li>
 </ul>
 <h4 id="Part-2-建立元数据库-Uncompleted"><a href="#Part-2-建立元数据库-Uncompleted" class="headerlink" title="Part.2 建立元数据库 [Uncompleted]"></a>Part.2 建立元数据库 [Uncompleted]</h4><h4 id="Part-3-运行时反射的最后实现-Uncompleted"><a href="#Part-3-运行时反射的最后实现-Uncompleted" class="headerlink" title="Part.3 运行时反射的最后实现 [Uncompleted]"></a>Part.3 运行时反射的最后实现 [Uncompleted]</h4>
-        
       
     </div>
 
     <div class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/C/"> #C++ </a>
+          
+            <a href="/tags/反射/"> #反射 </a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/Optimizing-Graphics-Performance/">Unity3D 图形性能优化</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </div>
   </div>
 
 
+
     
-      
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/Optimizing-Graphics-Performance/">
-                Unity3D 图形性能优化
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-06-30
-        </span>
-
+    
+      <div class="comments" id="comments">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/Unity3D/">Unity3D</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/Optimizing-Graphics-Performance/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/Optimizing-Graphics-Performance/"></span>
-            </a>
-          </span>
-          
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
         
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          本文为Unity3D官方文档[Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)的中文翻译。在这篇文章中，Unity官方提到了很多优化方面的方向性思路，是一篇具有指导性意义的文献。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/Optimizing-Graphics-Performance/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
 
@@ -382,6 +323,15 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -453,6 +403,17 @@
       </div>
 
       
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得C-元数据"><span class="nav-number">2.</span> <span class="nav-text">获得C++元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化元数据"><span class="nav-number">3.</span> <span class="nav-text">序列化元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用元数据"><span class="nav-number">4.</span> <span class="nav-text">使用元数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number"></span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-1-获得元数据"><span class="nav-number">0.1.</span> <span class="nav-text">Part.1 获得元数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-2-建立元数据库-Uncompleted"><span class="nav-number">0.2.</span> <span class="nav-text">Part.2 建立元数据库 [Uncompleted]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-3-运行时反射的最后实现-Uncompleted"><span class="nav-number">0.3.</span> <span class="nav-text">Part.3 运行时反射的最后实现 [Uncompleted]</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
 
     </div>
   </div>
@@ -514,6 +475,145 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
@@ -558,15 +658,15 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'elecelf';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
+      var disqus_identifier = '2017/Cpp-Reflection-Explorer/';
+      var disqus_title = 'C++反射探索';
+      var disqus_url = 'http://elecelf.info/2017/Cpp-Reflection-Explorer/';
 
       (function(){
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }());
     </script>
